@@ -49,7 +49,7 @@
 		if (xhr.status === 200) {
 			console.log('App vesrion is: ', JSON.parse(xhr.responseText).version);
 		}
-	}
+	};
 
 	xhr.send();
 
