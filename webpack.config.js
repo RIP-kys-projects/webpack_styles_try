@@ -22,6 +22,8 @@ module.exports = {
         aggregateTimeout: 100
     },
 
+    //devtool: "source-map",
+
     resolve: {
         modulesDirectories: ['node_modules'],
         extensions:         ['', '.js', '.css']
@@ -45,7 +47,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('css')
+                loader: ExtractTextPlugin.extract('css-loader?sourceMap') // css-sourceMap will exist only in case of sourceMaps being inited by devtool-parameter
             },
             {
                 test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
