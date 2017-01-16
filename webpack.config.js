@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        //index: './index',
+        app: './components/app/app',
         styles: './index.css'
     },
 
@@ -52,6 +52,10 @@ module.exports = {
             {
                 test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
                 loader: 'file?name=[path][name].[ext]'
+            },
+            {
+                test: /menu.js$/,
+                loader: 'imports?window=>global'
             }
         ]
     },

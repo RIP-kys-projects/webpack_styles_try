@@ -1,10 +1,14 @@
-(function () {
- 	'use strict';
 
 	//import
-	let Menu = window.Menu;
-	let Form = window.Form;
-	let Model = window.Model;
+
+
+    require('./app.css');
+
+	let Menu = require('../menu/menu.js');
+	let Form = require('../form/form.js');
+	let Model = require('../model/model.js');
+
+	/* Осталось включить в каждый файл стили */
 
 	let menuModel = new Model({
 		resource: '/data/menu.json',
@@ -52,5 +56,3 @@
 	};
 
 	xhr.send();
-
-})();

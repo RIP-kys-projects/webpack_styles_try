@@ -1,4 +1,4 @@
-(function () {
+
 	'use strict';
 
 	class Model {
@@ -51,7 +51,7 @@
 					this.trigger('fetch', xhr);
 					this.setData(data);
 				}
-			}
+			};
 
 			xhr.send();
 		}
@@ -59,6 +59,4 @@
 
 
 	//export
-	window.Model = Model;
-
-})();
+	exports.Model = Model;

@@ -1,8 +1,12 @@
-(function() {
+
 	'use strict';
 
 	//import
-	let _template = window.fest['menu/menu.tmpl'];
+	require('./menu.css');
+	/* ошибка!, как я подключу fest сюда, чтобы было видно изнутри вебпака ?? Просто не видна изнутри window
+	* и необходимо посмотреть, как работает fest, чтобы понимать, что нужно для правильной работы */
+	console.log(window.fest);
+	let _template = window.fest['./components/menu/menu.tmpl'];
 
 	/**
 	 * @class Menu
@@ -101,6 +105,4 @@
 	}
 
 	// Export
-	window.Menu = Menu;
-
-})(window);
+	exports.Menu = Menu;

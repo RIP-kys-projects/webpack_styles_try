@@ -1,7 +1,8 @@
-(function () {
+
 	'use strict';
 
 
+    require('./form.css');
 	/**
 	 * @class Form
 	 * Компонента "Форма"
@@ -109,5 +110,4 @@
 
 
 	//export
-	window.Form = Form;
-})();
+	exports.Form = Form;
