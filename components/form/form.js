@@ -110,4 +110,4 @@
 
 
 	//export
-	exports.Form = Form;
+	module.exports = Form;

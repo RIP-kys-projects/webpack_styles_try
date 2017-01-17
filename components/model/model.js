@@ -59,4 +59,4 @@
 
 
 	//export
-	exports.Model = Model;
+	module.exports = Model;

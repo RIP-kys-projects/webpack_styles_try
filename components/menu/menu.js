@@ -5,8 +5,9 @@
 	require('./menu.css');
 	/* ошибка!, как я подключу fest сюда, чтобы было видно изнутри вебпака ?? Просто не видна изнутри window
 	* и необходимо посмотреть, как работает fest, чтобы понимать, что нужно для правильной работы */
-	console.log(window.fest);
-	let _template = window.fest['./components/menu/menu.tmpl'];
+	/* ПОКА ЧТО исключаю использование шаблонизатора ФЕСТ, ниже по коду использую просто хтмл с циклами */
+	/*console.log(window.fest);
+	let _template = window.fest['./components/menu/menu.tmpl'];*/
 
 	/**
 	 * @class Menu
@@ -54,7 +55,30 @@
 		 * Создаем HTML
 		 */
 		render () {
-			this.el.innerHTML = _template(this.data);
+			/* пока что не использую ФЕСТ */
+			//this.el.innerHTML = _template(this.data);
+			this.el.innerHTML = `
+				<div class="menu pure-menu custom-restricted-width">
+					<span class="menu_title pure-menu-heading">
+						${this.data.title}
+					</span>
+					<ul class="menu__list pure-menu-list">
+						${generateItems(this.data.items)}
+					</ul>
+				</div>
+			`;
+			function generateItems(items) {
+				return items.map( (item, index)=>{
+					return `
+						<li class="pure-menu-item" data-index="${index}">
+							<a class="pure-menu-link" href="${item.href}" data-action="pick">
+								${item.anchor}
+							</a>
+							<i class="close" data-action="remove"></i>
+						</li>
+					`
+				} ).join('');
+            }
 		}
 
 		/**
@@ -105,4 +129,4 @@
 	}
 
 	// Export
-	exports.Menu = Menu;
+	module.exports = Menu;
